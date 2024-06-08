@@ -1,0 +1,38 @@
+<%-include ('./partials/header.ejs') %>
+
+<div class="box" id="heading"><h1>Today</h1></div>
+
+<div class="box">
+    <% if(locals.tasks){ %>
+        <% for (let task of tasks) { %>
+            <div class="task">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="deleteTaskId" value="<%= task.id %>" >
+                </form>
+                <p id="title<%= task.id %>"><%= task.title %></p>
+                <form class="edit" action="/edit" method="post">
+                    <input type="hidden" name="updatedTaskId" value="<%= task.id %>" />
+                    <input id="input<%= task.id %>" type="text" class="edittodo" name="updatedTaskTitle" value="<%= task.title %>" autocomplete="off" autofocus="true" hidden="true" />
+                    <button class="btn-edit" id="done<%= task.id %>" type="submit" hidden="true">✔</button>
+                </form>
+                <button class="btn-edit" id="edit<%= task.id %>" type="submit" onclick="handle('<%= task.id %>')">🖉</button>
+            </div>
+        <% } %>
+        <form class="task add" action="/add" method="post">
+            <input type="text" class="addtodo" name="newTask" placeholder="New Task" autocomplete="off" autofocus="true" />
+            <button class="btn-add" type="submit" name="list" value="Today">+</button>
+        </form>
+    <% } %>
+</div>
+
+
+<script>
+    function handle(id){
+        document.getElementById('title'+id).setAttribute('hidden', true)
+        document.getElementById('edit'+id).setAttribute('hidden', true)
+        document.getElementById('input'+id).removeAttribute('hidden')
+        document.getElementById('done'+id).removeAttribute('hidden')
+    }
+</script>
+
+<%-include ('./partials/footer.ejs') %>

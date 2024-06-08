@@ -1,0 +1,139 @@
+body{
+    font-family: "helvetica neue";
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 95vh;
+    background-color: rgb(164, 255, 89);
+    color: #042c00
+}
+
+main{
+    text-align: center;
+    flex: 1 0 auto;
+}
+
+h1 {
+    padding: 10px;
+}
+
+#heading{
+    background-color: white;
+}
+
+.box{
+    position: relative;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.3);
+}
+
+.edit{
+    display: flex;
+    margin-left:0px ;
+
+}
+
+.task{
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.task:last-child {
+    border-bottom: 0;
+}
+
+p{
+    margin: 0;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #032400;
+}
+
+form{
+    text-align: center;
+    margin: 20px;
+}
+
+.btn-add{
+    position: absolute;
+    right: 20px;
+    min-height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: rgb(164, 255, 89);
+    border-width: 0;
+    color: #032400;
+    font-size: 30px;
+}
+.btn-add:hover{
+    background-color: #0d9900;
+    color: #000000;
+}
+
+.btn-edit{
+    position: absolute;
+    right: 10px;
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+    font-size: 15px;
+}
+
+.edittodo{
+    font-family: "helvetica neue";
+    text-align: left;
+    font-size: 20px;
+    border: none;
+    background: rgb(223, 255, 202);
+    width: 100%;
+
+}
+
+.edittodo:focus{
+    outline: none;
+
+}
+
+.add .addtodo{
+    text-align: left;
+    height: 60px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 80%;
+}
+
+.add .addtodo:focus{
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 rgb(164, 255, 89);
+}
+
+::placeholder {
+    color: lightgray;
+    opacity: 1;
+}
+
+footer {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+@media (max-width: 480px){
+    html{
+      min-height: 100vh;
+    }
+    .box{
+      width: 93%;
+    }
+  }
+  
